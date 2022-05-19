@@ -1,5 +1,5 @@
 /**
- * Challenge:
+ * Challenge 1:
  * 
  * - Create a Die component that takes a `value` prop
  * - Render 10 instances of the Die component (manually)
