@@ -23,6 +23,10 @@ function App() {
     return diceValues
   }
 
+  function rollDice() {
+    setDice(allNewDice)
+  }
+
   /**
    * Map over the state numbers array to generate our array
    * of Die elements and render those in place of our
@@ -35,6 +39,8 @@ function App() {
       <div className="dice-container">
         {diceElements}
       </div>
+      {/* Roll Dice button */}
+      <button className="roll-dice" onClick={rollDice}>Roll</button>
     </main>
   );
 }
