@@ -17,11 +17,9 @@ function App() {
 
     //loop 10 times
     for(let i=0; i<10; i++) {
-      // generate a random number from 1 to 6
-      const randomNumber = Math.ceil(Math.random() * 6);
       // generate an Dice object
       const diceObject = {
-        value: randomNumber, 
+        value: Math.ceil(Math.random() * 6), 
         isHeld: false,
         id: nanoid(),
       }
@@ -40,7 +38,7 @@ function App() {
    * of Die elements and render those in place of our
    * manually-written 10 Die elements.
    */
-  const diceElements = dice.map(die => <Die key={die.id} value={die.value} />)
+  const diceElements = dice.map(die => <Die key={die.id} value={die.value} isHeld={die.isHeld} />)
 
   return (
     <main className="game-board">
