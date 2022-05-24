@@ -33,12 +33,18 @@ function App() {
     setDice(allNewDice)
   }
 
+  function holdDice(id) {
+    console.log(id)
+  }
   /**
    * Map over the state numbers array to generate our array
    * of Die elements and render those in place of our
    * manually-written 10 Die elements.
    */
-  const diceElements = dice.map(die => <Die key={die.id} value={die.value} isHeld={die.isHeld} />)
+  const diceElements = dice.map(die => 
+    <Die  key={die.id} value={die.value} 
+          isHeld={die.isHeld} id={die.id} 
+          holdDice={()=>holdDice(die.id)} />)
 
   return (
     <main className="game-board">

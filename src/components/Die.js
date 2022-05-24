@@ -14,7 +14,10 @@ export default function Die(props) {
         backgroundColor: props.isHeld ? "#59E391" : "white"
     }
     return (
-        <div className="die-face" style={styleHeldDie}>
+        <div 
+            className="die-face" 
+            style={styleHeldDie}
+            onClick={props.holdDice}>
             <h2 className="text-die" >{props.value}</h2>
         </div>
     )
