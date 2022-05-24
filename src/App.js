@@ -1,5 +1,6 @@
 import React from "react";
-import Die from "./components/Die"
+import Die from "./components/Die";
+import {nanoid} from "nanoid";
 
 
 function App() {
@@ -16,9 +17,16 @@ function App() {
 
     //loop 10 times
     for(let i=0; i<10; i++) {
-      //push a random number from 1 to 6 in to the array
+      // generate a random number from 1 to 6
       const randomNumber = Math.ceil(Math.random() * 6);
-      diceValues.push(randomNumber)
+      // generate an Dice object
+      const diceObject = {
+        value: randomNumber, 
+        isHeld: false,
+        id: nanoid(),
+      }
+      // push the object in the array
+      diceValues.push(diceObject)
     }
     return diceValues
   }
@@ -32,7 +40,7 @@ function App() {
    * of Die elements and render those in place of our
    * manually-written 10 Die elements.
    */
-  const diceElements = dice.map(die => <Die value={die} />)
+  const diceElements = dice.map(die => <Die key={die.id} value={die.value} />)
 
   return (
     <main className="game-board">
