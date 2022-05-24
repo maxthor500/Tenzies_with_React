@@ -45,6 +45,12 @@ function App() {
   }, [dice]);
 
   function rollDice() {
+    if (tenzies) {
+      for(let i=0; i<dice.length; i++) {
+        holdDice(dice[i].id)
+        setTenzies(false)
+      }
+    }
     setDice(prevDice => prevDice.map(die => {
         return die.isHeld ? die : generateNewDie()
       })
